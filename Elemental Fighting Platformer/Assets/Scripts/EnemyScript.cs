@@ -1,15 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyScript : MonoBehaviour {
+public class EnemyScript : Enemy {
 
-	public int hp;
-	public float speed;
-	public GameObject player; /* main player object */
-
-	public int direction;
-	public float lastChange;
-	
 	/* initializer */
 	void Start ()
 	{
@@ -36,7 +29,7 @@ public class EnemyScript : MonoBehaviour {
 		rigidbody2D.velocity = new Vector2(0, direction * speed);
 	}
 	
-	public void takeDamage(int dmg)
+	public override void takeDamage(int dmg)
 	{
 		hp = (hp > dmg) ? hp - dmg : 0;
 		if (hp == 0) {
