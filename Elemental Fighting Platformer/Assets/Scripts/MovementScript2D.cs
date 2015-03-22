@@ -2,14 +2,18 @@ using UnityEngine;
 using System.Collections;
 
 public class MovementScript2D : MonoBehaviour {
-	public float WALK_FORCE = 10.0f;
-	public float JUMP_FORCE = 200.0f;
-	public float MAX_SPEED = 50.0f;
+	public float WALK_FORCE = 100.0f;
+	public float JUMP_FORCE = 500.0f;
+	public float MAX_SPEED = 5.0f;
 	
-	public bool grounded;
+	public bool isGrounded;
 	public Constants.Dir direction;
-	public float hDown, vDown;
-	public float hLastTime, vLastTime;
+	public bool isShooting;
+	public Rigidbody2D projectile;
+
+	private float hDown, vDown;
+	private float hLastTime, vLastTime;
+	private float lastFiredTime;
 
 	private GameObject playerSprite;
 	private GameObject groundCheck;
@@ -18,9 +22,9 @@ public class MovementScript2D : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//playerSprite = transform.FindChild("PlayerSprite").gameObject;
-		playerSprite = gameObject;
+		//playerSprite = gameObject;
 		//groundCheck = transform.FindChild("GroundCheck").gameObject;
-		anim = playerSprite.GetComponent<Animator>();
+		anim = GetComponent<Animator>();
 	}
 
 	void Update () {
@@ -61,15 +65,21 @@ public class MovementScript2D : MonoBehaviour {
 		}
 
 		switch (direction) {
-			case Constants.Dir.W: anim.SetInteger("Direction", 0); break;
-			case Constants.Dir.N: anim.SetInteger("Direction", 1); break;
-			case Constants.Dir.E: anim.SetInteger("Direction", 2); break;
-			case Constants.Dir.S: anim.SetInteger("Direction", 3); break;
+			case Constants.Dir.W: anim.SetFloat("Horizontal", -1); anim.SetFloat("Vertical", 0); break;
+			case Constants.Dir.N: anim.SetFloat("Horizontal", 0); anim.SetFloat("Vertical", 1); break;
+			case Constants.Dir.E: anim.SetFloat("Horizontal", 1); anim.SetFloat("Vertical", 0); break;
+			case Constants.Dir.S: anim.SetFloat("Horizontal", 0); anim.SetFloat("Vertical", -1); break;
 		}
 
 		// Makes player shoot projectile
-		if (Mathf.Abs(hDown) > 0 || Mathf.Abs(vDown) > 0) {
-			Debug.Log ("Blah");
+		if ((Mathf.Abs(hDown) > 0 || Mathf.Abs(vDown) > 0) && (Time.fixedTime - lastFiredTime > 0.2)) {
+			isShooting = true;
+			Rigidbody2D projectileInstance = Instantiate(projectile, transform.position + (Vector3) Constants.getVectorFromDirection(direction), Quaternion.Euler(new Vector3(0,0,0))) as Rigidbody2D;
+			projectileInstance.velocity = 10 * Constants.getVectorFromDirection(direction);
+			lastFiredTime = Time.fixedTime;
+		}
+		else {
+			isShooting = false;
 		}
 
 		// Makes player sprite either move or stand still
@@ -85,14 +95,17 @@ public class MovementScript2D : MonoBehaviour {
 	void FixedUpdate() {
 		// Updates the player's position
 		float h, v;
-		Vector2 moveForce;
+		Vector2 moveForce = new Vector2(0, 0);
 
 		h = Input.GetAxis("Horizontal");
 		v = Input.GetAxis("Vertical");
 
 		moveForce = new Vector2(WALK_FORCE * h, WALK_FORCE * v);
 
-		
 		rigidbody2D.AddForce(moveForce);
+
+		if (rigidbody2D.velocity.magnitude > MAX_SPEED) {
+			rigidbody2D.velocity = MAX_SPEED * rigidbody2D.velocity.normalized;
+		}
 	}
 }
