@@ -1,26 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MovementScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MovementScript2D.cs">
     <Files>
-      <File FileName="..\..\2015GJ-HookJam\UnityProject\Assets\GUIScripts.cs" Line="41" Column="6" />
-      <File FileName="..\..\2015GJ-HookJam\UnityProject\Assets\Scripts\StationTurretHitboxScript.cs" Line="1" Column="1" />
-      <File FileName="..\..\2015GJ-HookJam\UnityProject\Assets\Scripts\StationTurretEnemyScript.cs" Line="1" Column="1" />
-      <File FileName="..\..\2015GJ-HookJam\UnityProject\Assets\Scripts\PlatformScript.cs" Line="1" Column="1" />
-      <File FileName="..\..\2015GJ-HookJam\UnityProject\Assets\Scripts\NextSceneScript.cs" Line="16" Column="1" />
-      <File FileName="..\..\2015GJ-HookJam\UnityProject\Assets\Scripts\HookScript.cs" Line="1" Column="1" />
-      <File FileName="..\..\2015GJ-HookJam\UnityProject\Assets\Scripts\HeroMovement.cs" Line="34" Column="17" />
-      <File FileName="..\..\2015GJ-HookJam\UnityProject\Assets\Scripts\SnailEnemyScript.cs" Line="1" Column="1" />
-      <File FileName="..\..\2015GJ-HookJam\UnityProject\Assets\Scripts\SnailHeadHitboxScript.cs" Line="1" Column="1" />
-      <File FileName="..\..\2015GJ-HookJam\UnityProject\Assets\Scripts\CameraControls.cs" Line="16" Column="8" />
-      <File FileName="..\..\2015GJ-HookJam\UnityProject\Assets\Scripts\ChargeScript.cs" Line="1" Column="1" />
-      <File FileName="..\..\2015GJ-HookJam\UnityProject\Assets\Scripts\HeroFeetScript.cs" Line="1" Column="1" />
-      <File FileName="..\..\2015GJ-HookJam\UnityProject\Assets\Scripts\StaminaBar.cs" Line="116" Column="41" />
-      <File FileName="..\..\2015GJ-HookJam\UnityProject\Assets\Scripts\HealthBar.cs" Line="107" Column="43" />
-      <File FileName="..\..\2015GJ-HookJam\UnityProject\Assets\Scripts\UI.cs" Line="13" Column="51" />
-      <File FileName="Assets\Scripts\MovementScript.cs" Line="18" Column="18" />
-      <File FileName="..\..\2015GJ-HookJam\UnityProject\Assets\Scripts\Constants.cs" Line="17" Column="56" />
-      <File FileName="..\..\..\Unity Projects\New Unity Project\Assets\Scripts\PlayerControl.cs" Line="49" Column="41" />
-      <File FileName="..\..\2015GJ-HookJam\UnityProject\Assets\Scripts\TurtleWeakPointHitbox.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MovementScript2D.cs" Line="93" Column="8" />
+      <File FileName="Assets\Scripts\Constants.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
