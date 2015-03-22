@@ -10,9 +10,11 @@ public abstract class Enemy : MonoBehaviour {
 	public int direction;
 	public float lastChange;
 
-	public abstract void takeDamage(int dmg);
+	public virtual void takeDamage(int dmg) {
+		hp -= dmg;
+	}
 
 	public virtual void attack() {
-		Debug.Log ("Attacked");
+		Debug.Log ("Default Attacked");
 	}
 }
