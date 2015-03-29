@@ -3,6 +3,8 @@ using System.Collections;
 
 public class ProjectileScript : MonoBehaviour {
 
+	public string parentTag;
+
 	// Use this for initialization
 	void Start () {
 		Destroy(gameObject, 2);
@@ -14,11 +16,11 @@ public class ProjectileScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D col) {
-		if(col.tag == "Player" || col.tag == "Prop")
+		if(parentTag == "Enemy" && (col.tag == "Player" || col.tag == "Prop"))
 		{
 			Destroy (gameObject);
 		}
-		else if (col.tag == "Enemy") {
+		else if (parentTag == "Player" && col.tag == "Enemy") {
 			col.gameObject.GetComponent<EnemyScript>().takeDamage(10);
 			Destroy(gameObject);
 		}
