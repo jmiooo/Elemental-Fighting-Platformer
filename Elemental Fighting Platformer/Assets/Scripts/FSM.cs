@@ -67,7 +67,7 @@ public class FSM
 
   void Transition(TransStats transition)
   {
-    if (stateMap.TryGetValue(transition, out nextState)
+    if (stateMap.TryGetValue(transition, out nextState))
       stateCurrent = nextState;
   }
 }
