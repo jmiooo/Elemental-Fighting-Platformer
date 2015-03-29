@@ -16,6 +16,17 @@ public class EnemyScript : Enemy {
 		rigidbody2D.velocity = new Vector2(0, direction * speed);
 
 		hitHistory = new int[] { 0, 0, 0, 0, 0 };
+
+		StartCoroutine (decayResistances ());
+	}
+
+	IEnumerator decayResistances() {
+		while (true) {
+			for (int i = 0; i < hitHistory.Length; i++)
+				hitHistory[i] /= 2;
+
+			yield return new WaitForSeconds(1);
+		}
 	}
 	
 	/* updater is called once per frame */
@@ -41,7 +52,7 @@ public class EnemyScript : Enemy {
 
 	public void takeElementAndDamage(Constants.Elements element, int damage) {
 		updateResistances (element);
-		int actualDamage = damage / calculateResistance (element);
+		int actualDamage = damage / (calculateResistance (element) + 1);
 		Debug.Log (actualDamage);
 
 		takeDamage (actualDamage);
