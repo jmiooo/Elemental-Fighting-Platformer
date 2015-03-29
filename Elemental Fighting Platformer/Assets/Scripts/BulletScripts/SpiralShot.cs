@@ -17,8 +17,8 @@ public class SpiralShot : MonoBehaviour
 		private IEnumerator shootBullet ()
 		{
 				while (true) {
-			GameObject newBullet = GameObject.Instantiate(bulletPrefab);
-			newBullet.GetComponent<MovementScript>();
+			//GameObject newBullet = GameObject.Instantiate(bulletPrefab);
+			//newBullet.GetComponent<MovementScript>();
 						yield return new WaitForSeconds (delay);
 				}
 		}
