@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 /* a class for storing the current state and transition */
 public class TransStats
@@ -26,6 +27,12 @@ class TransEqualityComparer : IEqualityComparer<TransStats>
     return stats0.stateCurrent == stats1.stateCurrent
         && stats0.transition == stats1.transition;
   }
+  
+  public int GetHashCode(TransStats trans)
+  {
+    return ((trans.stateCurrent*1103515245 + 12345)
+           + trans.transition)*1103515245 + 12345;
+  }
 }
 
 /* FSM implementation */
@@ -39,7 +46,7 @@ public class FSM
    * each index in the matrix corresponds to the next state;
    * REQUIRES: length of inputMatrix is equal to nstate
    */
-  void FSM(List<TransStats>[] inputMatrix, int nstate)
+  public FSM(List<TransStats>[] inputMatrix, int nstate)
   {
     List<TransStats> transList;
     TransEqualityComparer transEqC = new TransEqualityComparer();
@@ -49,7 +56,7 @@ public class FSM
     for (int stateNext = 0; stateNext < nstate; stateNext++) {
       transList = inputMatrix[stateNext];
       foreach (TransStats stateStats in transList)
-        stateMap.Add(stateStats, nextState);
+        stateMap.Add(stateStats, stateNext);
     }
   }
 
@@ -67,7 +74,8 @@ public class FSM
 
   void Transition(TransStats transition)
   {
-    if (stateMap.TryGetValue(transition, out nextState))
-      stateCurrent = nextState;
+    int stateNext;
+    if (stateMap.TryGetValue(transition, out stateNext))
+      stateCurrent = stateNext;
   }
 }
