@@ -44,6 +44,7 @@ public class FSM
   /* 
    * initialize the dictionary with the transition matrix;
    * each index in the matrix corresponds to the next state;
+   * the 0th index is the null state, 1st index is the init state;
    * REQUIRES: length of inputMatrix is equal to nstate
    */
   public FSM(List<TransStats>[] inputMatrix, int nstate)
@@ -72,10 +73,11 @@ public class FSM
     stateCurrent = 1;
   }
 
-  void Transition(TransStats transition)
+  int Transition(TransStats transition)
   {
     int stateNext;
     if (stateMap.TryGetValue(transition, out stateNext))
       stateCurrent = stateNext;
+    return stateCurrent;
   }
 }
