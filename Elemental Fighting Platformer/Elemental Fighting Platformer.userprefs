@@ -1,4 +1,5 @@
 ﻿<Properties>
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SplitShot.cs">
     <Files>
@@ -9,6 +10,12 @@
       <File FileName="Assets\Scripts\EnemyAttack2.cs" Line="11" Column="32" />
       <File FileName="Assets\Scripts\EnemyAttack3.cs" Line="24" Column="33" />
       <File FileName="Assets\Scripts\SplitShot.cs" Line="46" Column="3" />
+=======
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BulletScripts\SpiralShot.cs">
+    <Files>
+      <File FileName="Assets\Scripts\BulletScripts\SpiralShot.cs" Line="21" Column="45" />
+>>>>>>> 4d0c4de02ded528bddbd8ba33269382456ecaffa
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
