@@ -7,11 +7,12 @@ public class MovementScript2D : MonoBehaviour {
 	public float MAX_SPEED = 5.0f;
 	
 	public bool isGrounded;
+	public Constants.Elements element;
 	public Constants.Dir direction;
 	public bool isShooting;
-	public int element;
-	public Rigidbody2D projectile;
 
+	private float[] esDown;
+	private float[] esLastTime;
 	private float hDown, vDown;
 	private float hLastTime, vLastTime;
 	private float lastFiredTime;
@@ -19,17 +20,57 @@ public class MovementScript2D : MonoBehaviour {
 	private GameObject playerSprite;
 	private GameObject groundCheck;
 	private Animator anim;
+	private GameObject projectile;
 
 	// Use this for initialization
 	void Start () {
 		//playerSprite = transform.FindChild("PlayerSprite").gameObject;
 		//playerSprite = gameObject;
 		//groundCheck = transform.FindChild("GroundCheck").gameObject;
+		esDown = new float[5];
+		esLastTime = new float[5];
+
 		anim = GetComponent<Animator>();
+		projectile = (GameObject) Resources.Load ("Prefabs/Projectile");
 	}
 
 	void Update () {
 		// Changes the element of the projectiles the player will be shooting
+		float[] es = new float[] { 0, 0, 0, 0, 0 };
+
+		if (Input.GetKey (Constants.element1Key)) es[0] = 1;
+		if (Input.GetKey (Constants.element2Key)) es[1] = 1;
+		if (Input.GetKey (Constants.element3Key)) es[2] = 1;
+		if (Input.GetKey (Constants.element4Key)) es[3] = 1;
+		if (Input.GetKey (Constants.element5Key)) es[4] = 1;
+
+		for (int i = 0; i < es.Length; i++) {
+			if (esDown[i] == 0 && es[i] == 1)
+				esLastTime[i] = Time.fixedTime;
+
+			esDown[i] = es[i];
+		}
+
+		int eIndex = -1;
+		float eLastTime = 0;
+
+		for (int i = 0; i < es.Length; i++) {
+			if (esDown[i] == 1 && esLastTime[i] > eLastTime) {
+				eIndex = i;
+				eLastTime = esLastTime[i];
+			}
+		}
+
+		if (eIndex != -1) {
+			switch (eIndex) {
+				case 0: element = Constants.Elements.E1; break;
+				case 1: element = Constants.Elements.E2; break;
+				case 2: element = Constants.Elements.E3; break;
+				case 3: element = Constants.Elements.E4; break;
+				case 4: element = Constants.Elements.E5; break;
+				default: break;
+			}
+		}
 
 		// Makes player sprite face the direction he will be shooting
 		float h = 0;
@@ -40,15 +81,13 @@ public class MovementScript2D : MonoBehaviour {
 		if (Input.GetKey (KeyCode.RightArrow)) h += 1;
 		if (Input.GetKey (KeyCode.DownArrow)) v -= 1;
 
-		if (hDown != h) {
-			hDown = h;
+		if (hDown != h)
 			hLastTime = Time.fixedTime;
-		}
+		hDown = h;
 
-		if (vDown != v) {
-			vDown = v;
+		if (vDown != v)
 			vLastTime = Time.fixedTime;
-		}
+		vDown = v;
 
 		if (hDown != 0 && vDown != 0) {
 			if (hLastTime >= vLastTime) {
@@ -77,8 +116,12 @@ public class MovementScript2D : MonoBehaviour {
 		// Makes player shoot projectile
 		if ((Mathf.Abs(hDown) > 0 || Mathf.Abs(vDown) > 0) && (Time.fixedTime - lastFiredTime > 0.2)) {
 			isShooting = true;
-			Rigidbody2D projectileInstance = Instantiate(projectile, transform.position + (Vector3) Constants.getVectorFromDirection(direction), Quaternion.Euler(new Vector3(0,0,0))) as Rigidbody2D;
-			projectileInstance.velocity = 10 * Constants.getVectorFromDirection(direction);
+
+			GameObject projectileClone = (GameObject) GameObject.Instantiate (projectile);
+			projectileClone.transform.position = transform.position + (Vector3) Constants.getVectorFromDirection(direction);
+			projectileClone.rigidbody2D.velocity = 10 * Constants.getVectorFromDirection(direction);
+			projectileClone.GetComponent<ProjectileScript>().element = element;
+
 			lastFiredTime = Time.fixedTime;
 		}
 		else {

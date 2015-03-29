@@ -1,15 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyScript : MonoBehaviour {
+public class EnemyScript : Enemy {
 
-	public int hp;
-	public float speed;
-	public GameObject player; /* main player object */
-
-	public int direction;
-	public float lastChange;
-	
 	/* initializer */
 	void Start ()
 	{
@@ -21,6 +14,8 @@ public class EnemyScript : MonoBehaviour {
 		direction = -1;
 		lastChange = Time.fixedTime;
 		rigidbody2D.velocity = new Vector2(0, direction * speed);
+
+		hitHistory = new int[] { 0, 0, 0, 0, 0 };
 	}
 	
 	/* updater is called once per frame */
@@ -36,11 +31,20 @@ public class EnemyScript : MonoBehaviour {
 		rigidbody2D.velocity = new Vector2(0, direction * speed);
 	}
 	
-	public void takeDamage(int dmg)
+	public override void takeDamage(int damage)
 	{
-		hp = (hp > dmg) ? hp - dmg : 0;
+		hp = (hp > damage) ? hp - damage : 0;
 		if (hp == 0) {
 			Destroy(gameObject);
 		}
+	}
+
+	public void takeElementAndDamage(Constants.Elements element, int damage) {
+		updateResistances (element);
+		int actualDamage = damage / calculateResistance (element);
+		Debug.Log (actualDamage);
+
+		takeDamage (actualDamage);
+
 	}
 }
