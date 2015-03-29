@@ -9,6 +9,7 @@ public class MovementScript2D : MonoBehaviour {
 	public bool isGrounded;
 	public Constants.Dir direction;
 	public bool isShooting;
+	public int element;
 	public Rigidbody2D projectile;
 
 	private float hDown, vDown;
@@ -28,6 +29,8 @@ public class MovementScript2D : MonoBehaviour {
 	}
 
 	void Update () {
+		// Changes the element of the projectiles the player will be shooting
+
 		// Makes player sprite face the direction he will be shooting
 		float h = 0;
 		float v = 0;
