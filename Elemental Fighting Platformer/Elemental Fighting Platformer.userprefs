@@ -1,23 +1,22 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MovementScript2D.cs">
     <Files>
-      <File FileName="Assets\Scripts\EnemyAttack1.cs" Line="21" Column="24" />
-      <File FileName="Assets\Scripts\MovementScript2D.cs" Line="128" Column="5" />
-      <File FileName="Assets\Scripts\CameraTopDownScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Constants.cs" Line="6" Column="21" />
-      <File FileName="Assets\Scripts\Enemy.cs" Line="49" Column="34" />
-      <File FileName="Assets\Scripts\EnemyScript.cs" Line="41" Column="2" />
-      <File FileName="Assets\Scripts\ShootScript.cs" Line="17" Column="1" />
+      <File FileName="Assets\Scripts\CameraTopDownScript.cs" Line="14" Column="2" />
+      <File FileName="Assets\Scripts\FSM.cs" Line="84" Column="1" />
+      <File FileName="Assets\Scripts\ProjectileScript.cs" Line="16" Column="2" />
+      <File FileName="Assets\Scripts\MovementScript2D.cs" Line="34" Column="63" />
+      <File FileName="Assets\Scripts\Enemy.cs" Line="14" Column="15" />
       <File FileName="Assets\Scripts\SortScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ProjectileScript.cs" Line="24" Column="67" />
+      <File FileName="Assets\Scripts\SplitShot.cs" Line="40" Column="12" />
+      <File FileName="Assets\Scripts\ShootScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\LoadLevel.cs" Line="1" Column="1" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BulletScripts\SpiralShot.cs">
-    <Files>
-      <File FileName="Assets\Scripts\BulletScripts\SpiralShot.cs" Line="21" Column="45" />
->>>>>>> 4d0c4de02ded528bddbd8ba33269382456ecaffa
+      <File FileName="Assets\Scripts\EnemyAttack3.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemyAttack2.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemyAttack1.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemyScript.cs" Line="15" Column="27" />
+      <File FileName="Assets\Scripts\BulletScripts\SpiralShot.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\TimeFreezeScript.cs" Line="4" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

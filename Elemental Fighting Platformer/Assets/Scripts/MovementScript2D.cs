@@ -31,7 +31,7 @@ public class MovementScript2D : MonoBehaviour {
 		esLastTime = new float[5];
 
 		anim = GetComponent<Animator>();
-		projectile = (GameObject) Resources.Load ("Prefabs/Projectile");
+		projectile = (GameObject) Resources.Load ("Prefabs/SplitShot");
 	}
 
 	void Update () {
@@ -121,6 +121,11 @@ public class MovementScript2D : MonoBehaviour {
 			projectileClone.transform.position = transform.position + (Vector3) Constants.getVectorFromDirection(direction);
 			projectileClone.rigidbody2D.velocity = 10 * Constants.getVectorFromDirection(direction);
 			projectileClone.GetComponent<ProjectileScript>().element = element;
+
+			/*Rigidbody2D projectileInstance = Instantiate(projectile, transform.position + (Vector3) Constants.getVectorFromDirection(direction), Quaternion.Euler(new Vector3(0,0,0))) as Rigidbody2D;
+			ProjectileScript projscript = projectileInstance.GetComponent<ProjectileScript>();
+			projscript.parentTag = "Player";
+			projectileInstance.velocity = 10 * Constants.getVectorFromDirection(direction);*/
 
 			lastFiredTime = Time.fixedTime;
 		}

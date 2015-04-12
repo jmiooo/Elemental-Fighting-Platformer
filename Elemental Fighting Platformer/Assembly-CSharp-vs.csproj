@@ -51,6 +51,8 @@
      <Compile Include="Assets\Scripts\Constants.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\EnemyAttack1.cs" />
+     <Compile Include="Assets\Scripts\EnemyAttack2.cs" />
+     <Compile Include="Assets\Scripts\EnemyAttack3.cs" />
      <Compile Include="Assets\Scripts\EnemyScript.cs" />
      <Compile Include="Assets\Scripts\FSM.cs" />
      <Compile Include="Assets\Scripts\LoadLevel.cs" />
@@ -58,6 +60,8 @@
      <Compile Include="Assets\Scripts\ProjectileScript.cs" />
      <Compile Include="Assets\Scripts\ShootScript.cs" />
      <Compile Include="Assets\Scripts\SortScript.cs" />
+     <Compile Include="Assets\Scripts\SplitShot.cs" />
+     <Compile Include="Assets\Scripts\TimeFreezeScript.cs" />
      <Compile Include="Assets\Scripts\Unused\CameraScript.cs" />
      <Compile Include="Assets\Scripts\Unused\MovementScript.cs" />
      <Compile Include="Assets\Scripts\Unused\Opponent.cs" />
