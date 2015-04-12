@@ -10,7 +10,7 @@ public class HealthMaskMove : MonoBehaviour
 	public void MatchMaskToPercentage (float healthPercent) {
 		healthPercent = Mathf.Clamp (healthPercent, 0.0f, 1.0f);
 		float maxX = gameObject.transform.parent.position.x;
-		float minX = maxX - ((RectTransform)(gameObject.transform.parent)).rect.width;
+		float minX = maxX - ((RectTransform)(gameObject.transform.parent)).rect.width - 5;
 		float x = ((maxX - minX) * healthPercent) + minX;
 		float y = gameObject.transform.parent.position.y;
 		this.MoveMask (new Vector3 (x, y, 0));
