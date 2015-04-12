@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class ProjectileScript : MonoBehaviour {
+	public Constants.Elements element;
 
 	public string parentTag;
 
@@ -20,8 +21,10 @@ public class ProjectileScript : MonoBehaviour {
 		{
 			Destroy (gameObject);
 		}
-		else if (parentTag == "Player" && col.tag == "Enemy") {
-			col.gameObject.GetComponent<EnemyScript>().takeDamage(10);
+		else if (col.tag == "Enemy") {
+			//col.gameObject.GetComponent<EnemyScript>().takeDamage(10);
+			col.gameObject.GetComponent<EnemyScript>().takeElementAndDamage(element, 10);
+
 			Destroy(gameObject);
 		}
 	}
