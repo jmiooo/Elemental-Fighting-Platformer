@@ -128,12 +128,7 @@ public class MovementScript2D : MonoBehaviour {
 			projectileClone.transform.position = transform.position + (Vector3) Constants.getVectorFromDirection(direction);
 			projectileClone.rigidbody2D.velocity = 10 * Constants.getVectorFromDirection(direction);
 			projectileClone.GetComponent<ProjectileScript>().element = element;
-
-			/*Rigidbody2D projectileInstance = Instantiate(projectile, transform.position + (Vector3) Constants.getVectorFromDirection(direction), Quaternion.Euler(new Vector3(0,0,0))) as Rigidbody2D;
-			ProjectileScript projscript = projectileInstance.GetComponent<ProjectileScript>();
-			projscript.parentTag = "Player";
-			projectileInstance.velocity = 10 * Constants.getVectorFromDirection(direction);*/
-
+			projectileClone.GetComponent<ProjectileScript>().parentTag = "Player";
 			lastFiredTime = Time.fixedTime;
 		}
 		else {
