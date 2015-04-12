@@ -55,7 +55,9 @@
      <Compile Include="Assets\Scripts\EnemyAttack3.cs" />
      <Compile Include="Assets\Scripts\EnemyScript.cs" />
      <Compile Include="Assets\Scripts\FSM.cs" />
+     <Compile Include="Assets\Scripts\HealthMaskMove.cs" />
      <Compile Include="Assets\Scripts\LoadLevel.cs" />
+     <Compile Include="Assets\Scripts\MoveToLocation.cs" />
      <Compile Include="Assets\Scripts\MovementScript2D.cs" />
      <Compile Include="Assets\Scripts\ProjectileScript.cs" />
      <Compile Include="Assets\Scripts\ShootScript.cs" />

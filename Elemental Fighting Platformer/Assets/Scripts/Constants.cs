@@ -18,7 +18,9 @@ public static class Constants{
 	}
 
 	public enum Elements { E1, E2, E3, E4, E5 };
-	
+
+	public static KeyCode timeFreezeKey = KeyCode.Space;
+
 	public static KeyCode element1Key = KeyCode.Alpha1;
 	public static KeyCode element2Key = KeyCode.Alpha2;
 	public static KeyCode element3Key = KeyCode.Alpha3;

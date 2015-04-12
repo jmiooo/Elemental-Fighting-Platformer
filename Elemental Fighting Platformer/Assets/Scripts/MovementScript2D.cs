@@ -11,6 +11,7 @@ public class MovementScript2D : MonoBehaviour {
 	public Constants.Dir direction;
 	public bool isShooting;
 
+	private float lastTimeFreezeTime;
 	private float[] esDown;
 	private float[] esLastTime;
 	private float hDown, vDown;
@@ -35,6 +36,12 @@ public class MovementScript2D : MonoBehaviour {
 	}
 
 	void Update () {
+		// Activates time freeze
+		if (Input.GetKey (Constants.timeFreezeKey) && Time.fixedTime - lastTimeFreezeTime > 0.2) {
+			Debug.Log (1);
+			lastTimeFreezeTime = Time.fixedTime;
+		}
+
 		// Changes the element of the projectiles the player will be shooting
 		float[] es = new float[] { 0, 0, 0, 0, 0 };
 
