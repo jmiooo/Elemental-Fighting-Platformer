@@ -18,7 +18,7 @@ public class Combo : MonoBehaviour {
 		combo = new StringBuilder ();
 		combo_count = combo_list.Length;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Alpha1))
@@ -39,7 +39,7 @@ public class Combo : MonoBehaviour {
 		string combo_final = combo.ToString ();
 		for (int i = 0; i < combo_count; i++) {
 			if (string.Equals (combo_final, combo_list [i])) {
-				Debug.Log ("valid combo");
+				Debug.Log ("valid combo" + combo_final);
 				return combo_final;
 			}
 		}
