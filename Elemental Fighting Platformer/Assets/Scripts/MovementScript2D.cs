@@ -25,6 +25,7 @@ public class MovementScript2D : MonoBehaviour {
 	private GameObject groundCheck;
 	private Animator anim;
 	private GameObject projectile;
+	private Combo combo;
 
 	// Use this for initialization
 	void Start () {
@@ -38,12 +39,16 @@ public class MovementScript2D : MonoBehaviour {
 
 		anim = GetComponent<Animator>();
 		projectile = (GameObject) Resources.Load ("Prefabs/SplitShot");
+		combo = GetComponent<Combo> ();
 	}
 
 	void OnGUI() {
 		if (isFrozen && Input.GetKeyDown (Constants.timeFreezeKey)) {
+			string combo_current;
 			Debug.Log (1);
 			Time.timeScale = 1;
+			if ((combo_current = combo.GetCombo()) != "")
+				Debug.Log ("found combo");
 			isFrozen = false;
 		}
 	}
@@ -54,6 +59,7 @@ public class MovementScript2D : MonoBehaviour {
 			Debug.Log (1);
 			Time.timeScale = 0;
 			lastTimeFreezeTime = Time.fixedTime;
+			combo.ClearCombo();
 			isFrozen = true;
 		}
 
