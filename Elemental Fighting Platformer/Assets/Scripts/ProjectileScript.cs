@@ -17,14 +17,14 @@ public class ProjectileScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D col) {
-		if(parentTag == "Enemy" && (col.tag == "Player" || col.tag == "Prop"))
-		{
+		if (parentTag == "Enemy" && col.tag == "Player") {
 			Destroy (gameObject);
-		}
-		else if (parentTag == "Player" && col.tag == "Enemy") {
+		} else if (parentTag == "Player" && col.tag == "Enemy") {
 			//col.gameObject.GetComponent<EnemyScript>().takeDamage(10);
-			col.gameObject.GetComponent<EnemyScript>().takeElementAndDamage(element, 10);
-			Destroy(gameObject);
+			col.gameObject.GetComponent<EnemyScript> ().takeElementAndDamage (element, 10);
+			Destroy (gameObject);
+		} else if (col.tag == "Prop") {
+			Destroy (gameObject);
 		}
 	}
 }
