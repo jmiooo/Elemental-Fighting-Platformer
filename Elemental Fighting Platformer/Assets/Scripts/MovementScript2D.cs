@@ -6,6 +6,7 @@ public class MovementScript2D : MonoBehaviour {
 	public float JUMP_FORCE = 500.0f;
 	public float MAX_SPEED = 5.0f;
 	
+	public bool isFrozen;
 	public bool isGrounded;
 	public Constants.Elements element;
 	public Constants.Dir direction;
@@ -35,11 +36,21 @@ public class MovementScript2D : MonoBehaviour {
 		projectile = (GameObject) Resources.Load ("Prefabs/SplitShot");
 	}
 
+	void OnGUI() {
+		if (isFrozen && Input.GetKeyDown (Constants.timeFreezeKey)) {
+			Debug.Log (1);
+			Time.timeScale = 1;
+			isFrozen = false;
+		}
+	}
+		
 	void Update () {
 		// Activates time freeze
-		if (Input.GetKey (Constants.timeFreezeKey) && Time.fixedTime - lastTimeFreezeTime > 0.2) {
+		if (Input.GetKeyDown (Constants.timeFreezeKey) && Time.fixedTime - lastTimeFreezeTime > 0.2) {
 			Debug.Log (1);
+			Time.timeScale = 0;
 			lastTimeFreezeTime = Time.fixedTime;
+			isFrozen = true;
 		}
 
 		// Changes the element of the projectiles the player will be shooting
