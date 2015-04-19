@@ -15,7 +15,7 @@ public class EnemyScript : Enemy {
 		lastChange = Time.fixedTime;
 		rigidbody2D.velocity = new Vector2(0, direction * speed);
 
-		hitHistory = new int[] { 0, 0, 0, 0, 0 };
+		hitHistory = new int[] { 0, 0, 0, 0, 0, 0 };
 
 		StartCoroutine (decayResistances ());
 	}

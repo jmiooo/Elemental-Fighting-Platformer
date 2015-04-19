@@ -2,10 +2,12 @@ using UnityEngine;
 using System.Collections;
 
 public class MovementScript2D : MonoBehaviour {
+	public int MAX_HP = 100;
 	public float WALK_FORCE = 100.0f;
 	public float JUMP_FORCE = 500.0f;
 	public float MAX_SPEED = 5.0f;
-	
+
+	public int hp;
 	public bool isFrozen;
 	public bool isGrounded;
 	public Constants.Elements element;
@@ -29,8 +31,10 @@ public class MovementScript2D : MonoBehaviour {
 		//playerSprite = transform.FindChild("PlayerSprite").gameObject;
 		//playerSprite = gameObject;
 		//groundCheck = transform.FindChild("GroundCheck").gameObject;
-		esDown = new float[5];
-		esLastTime = new float[5];
+		hp = MAX_HP;
+
+		esDown = new float[6];
+		esLastTime = new float[6];
 
 		anim = GetComponent<Animator>();
 		projectile = (GameObject) Resources.Load ("Prefabs/SplitShot");
@@ -54,13 +58,14 @@ public class MovementScript2D : MonoBehaviour {
 		}
 
 		// Changes the element of the projectiles the player will be shooting
-		float[] es = new float[] { 0, 0, 0, 0, 0 };
+		float[] es = new float[] { 0, 0, 0, 0, 0, 0 };
 
 		if (Input.GetKey (Constants.element1Key)) es[0] = 1;
 		if (Input.GetKey (Constants.element2Key)) es[1] = 1;
 		if (Input.GetKey (Constants.element3Key)) es[2] = 1;
 		if (Input.GetKey (Constants.element4Key)) es[3] = 1;
 		if (Input.GetKey (Constants.element5Key)) es[4] = 1;
+		if (Input.GetKey (Constants.element6Key)) es[5] = 1;
 
 		for (int i = 0; i < es.Length; i++) {
 			if (esDown[i] == 0 && es[i] == 1)
@@ -86,6 +91,7 @@ public class MovementScript2D : MonoBehaviour {
 				case 2: element = Constants.Elements.E3; break;
 				case 3: element = Constants.Elements.E4; break;
 				case 4: element = Constants.Elements.E5; break;
+				case 5: element = Constants.Elements.E6; break;
 				default: break;
 			}
 		}
@@ -132,19 +138,14 @@ public class MovementScript2D : MonoBehaviour {
 		}
 
 		// Makes player shoot projectile
-		if ((Mathf.Abs(hDown) > 0 || Mathf.Abs(vDown) > 0) && (Time.fixedTime - lastFiredTime > 0.2)) {
+		if ((Mathf.Abs(hDown) > 0 || Mathf.Abs(vDown) > 0) && (Time.fixedTime - lastFiredTime > 0.2) && !isFrozen) {
 			isShooting = true;
 
 			GameObject projectileClone = (GameObject) GameObject.Instantiate (projectile);
 			projectileClone.transform.position = transform.position + (Vector3) Constants.getVectorFromDirection(direction);
 			projectileClone.rigidbody2D.velocity = 10 * Constants.getVectorFromDirection(direction);
 			projectileClone.GetComponent<ProjectileScript>().element = element;
-
-			/*Rigidbody2D projectileInstance = Instantiate(projectile, transform.position + (Vector3) Constants.getVectorFromDirection(direction), Quaternion.Euler(new Vector3(0,0,0))) as Rigidbody2D;
-			ProjectileScript projscript = projectileInstance.GetComponent<ProjectileScript>();
-			projscript.parentTag = "Player";
-			projectileInstance.velocity = 10 * Constants.getVectorFromDirection(direction);*/
-
+			projectileClone.GetComponent<ProjectileScript>().parentTag = "Player";
 			lastFiredTime = Time.fixedTime;
 		}
 		else {
@@ -176,5 +177,13 @@ public class MovementScript2D : MonoBehaviour {
 		if (rigidbody2D.velocity.magnitude > MAX_SPEED) {
 			rigidbody2D.velocity = MAX_SPEED * rigidbody2D.velocity.normalized;
 		}
+	}
+
+	public void takeDamage(int damage) {
+		hp = (hp > damage) ? (hp - damage) : 0;
+	}
+
+	public void takeElementAndDamage(Constants.Elements element, int damage) {
+		takeDamage (damage);
 	}
 }

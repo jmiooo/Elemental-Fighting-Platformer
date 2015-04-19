@@ -20,32 +20,12 @@ public abstract class Enemy : MonoBehaviour {
 	}
 
 	public virtual void updateResistances(Constants.Elements element) {
-		int elementIndex = -1;
-
-		switch (element) {
-			case Constants.Elements.E1: elementIndex = 0; break;
-			case Constants.Elements.E2: elementIndex = 1; break;
-			case Constants.Elements.E3: elementIndex = 2; break;
-			case Constants.Elements.E4: elementIndex = 3; break;
-			case Constants.Elements.E5: elementIndex = 4; break;
-			default: break;
-		}
-
+		int elementIndex = Constants.getElementIndex (element);
 		hitHistory[elementIndex] += 1;
 	}
 
 	public virtual int calculateResistance(Constants.Elements element) {
-		int elementIndex = -1;
-		
-		switch (element) {
-			case Constants.Elements.E1: elementIndex = 0; break;
-			case Constants.Elements.E2: elementIndex = 1; break;
-			case Constants.Elements.E3: elementIndex = 2; break;
-			case Constants.Elements.E4: elementIndex = 3; break;
-			case Constants.Elements.E5: elementIndex = 4; break;
-			default: break;
-		}
-		
+		int elementIndex = Constants.getElementIndex (element);
 		return hitHistory[elementIndex];
 	}
 }

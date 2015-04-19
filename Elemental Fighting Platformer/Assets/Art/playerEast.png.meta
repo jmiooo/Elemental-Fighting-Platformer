@@ -1,7 +1,15 @@
 fileFormatVersion: 2
 guid: e10fbcec701680c46b51fd053ba8c582
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: playerEast_0
+    21300002: playerEast_1
+    21300004: playerEast_2
+    21300006: playerEast_3
+    21300008: playerEast_4
+    21300010: playerEast_5
+    21300012: playerEast_6
+    21300014: playerEast_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -25,13 +33,13 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: 0
-    aniso: -1
+    aniso: 16
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -42,6 +50,86 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: playerEast_0
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 31
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerEast_1
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 32
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerEast_2
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 31
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerEast_3
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 31
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerEast_4
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 31
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerEast_5
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 32
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerEast_6
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 31
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerEast_7
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 31
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

@@ -1,7 +1,15 @@
 fileFormatVersion: 2
 guid: 4aa72e58f4ffc17488050af6bf6a7a67
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: playerWest_0
+    21300002: playerWest_1
+    21300004: playerWest_2
+    21300006: playerWest_3
+    21300008: playerWest_4
+    21300010: playerWest_5
+    21300012: playerWest_6
+    21300014: playerWest_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -24,14 +32,14 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 0
+    aniso: 16
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -42,6 +50,86 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: playerWest_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 31
+        width: 34
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerWest_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerWest_2
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 31
+        width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerWest_3
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 31
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerWest_4
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 31
+        width: 34
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerWest_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 32
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerWest_6
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 31
+        width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerWest_7
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 31
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

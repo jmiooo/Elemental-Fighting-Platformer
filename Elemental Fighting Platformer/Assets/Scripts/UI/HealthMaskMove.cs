@@ -7,6 +7,15 @@ public class HealthMaskMove : MonoBehaviour
 	// index of the health bar in children of the mask
 	private int BAR_CHILD_INDEX = 0;
 
+	private GameObject player;
+	private MovementScript2D movementScript2D;
+	private float previousHealthPercent;
+
+	public void Start () {
+		player = GameObject.Find("Player");
+		movementScript2D = player.GetComponent<MovementScript2D>();
+	}
+
 	public void MatchMaskToPercentage (float healthPercent) {
 		healthPercent = Mathf.Clamp (healthPercent, 0.0f, 1.0f);
 		float maxX = gameObject.transform.parent.position.x;
@@ -27,4 +36,11 @@ public class HealthMaskMove : MonoBehaviour
 		return gameObject.transform.GetChild (this.BAR_CHILD_INDEX);
 	}
 
+	public void Update() {
+		float healthPercent = (float)movementScript2D.hp / (float)movementScript2D.MAX_HP;
+		//if (healthPercent != previousHealthPercent) {
+			MatchMaskToPercentage(healthPercent);
+		//}
+		//previousHealthPercent = healthPercent;
+	}
 }

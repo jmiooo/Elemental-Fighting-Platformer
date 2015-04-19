@@ -1,15 +1,13 @@
 fileFormatVersion: 2
-guid: b99421ee8c45ced4a996538442e8c845
+guid: f4fdd2bb331e4b643ba576c5152070e9
 TextureImporter:
   fileIDToRecycleName:
-    21300000: playerSouth_0
-    21300002: playerSouth_1
-    21300004: playerSouth_2
-    21300006: playerSouth_3
-    21300008: playerSouth_4
-    21300010: playerSouth_5
-    21300012: playerSouth_6
-    21300014: playerSouth_7
+    21300000: PlayerThrowWest_0
+    21300002: PlayerThrowWest_1
+    21300004: PlayerThrowWest_2
+    21300006: PlayerThrowWest_3
+    21300008: PlayerThrowWest_4
+    21300010: PlayerThrowWest_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -51,82 +49,62 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: playerSouth_0
+    - name: PlayerThrowWest_0
       rect:
         serializedVersion: 2
-        x: 36
+        x: 34
         y: 31
-        width: 34
+        width: 26
         height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: playerSouth_1
+    - name: PlayerThrowWest_1
       rect:
         serializedVersion: 2
-        x: 132
-        y: 32
-        width: 34
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: playerSouth_2
-      rect:
-        serializedVersion: 2
-        x: 228
+        x: 128
         y: 31
-        width: 34
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: playerSouth_3
-      rect:
-        serializedVersion: 2
-        x: 324
-        y: 32
-        width: 34
+        width: 28
         height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: playerSouth_4
+    - name: PlayerThrowWest_2
       rect:
         serializedVersion: 2
-        x: 420
+        x: 223
         y: 31
-        width: 34
+        width: 29
         height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: playerSouth_5
+    - name: PlayerThrowWest_3
       rect:
         serializedVersion: 2
-        x: 516
-        y: 32
-        width: 34
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: playerSouth_6
-      rect:
-        serializedVersion: 2
-        x: 612
+        x: 319
         y: 31
-        width: 34
-        height: 38
+        width: 29
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: playerSouth_7
+    - name: PlayerThrowWest_4
       rect:
         serializedVersion: 2
-        x: 708
-        y: 32
-        width: 34
+        x: 415
+        y: 31
+        width: 29
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerThrowWest_5
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 31
+        width: 29
         height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
