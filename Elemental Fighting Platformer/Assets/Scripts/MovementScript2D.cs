@@ -39,22 +39,22 @@ public class MovementScript2D : MonoBehaviour {
 		anim = GetComponent<Animator>();
 		projectile = (GameObject) Resources.Load ("Prefabs/SplitShot");
 	}
-
-	void OnGUI() {
-		if (isFrozen && Input.GetKeyDown (Constants.timeFreezeKey)) {
-			Debug.Log (1);
-			Time.timeScale = 1;
-			isFrozen = false;
-		}
-	}
+	
 		
 	void Update () {
 		// Activates time freeze
-		if (Input.GetKeyDown (Constants.timeFreezeKey) && Time.fixedTime - lastTimeFreezeTime > 0.2) {
-			Debug.Log (1);
-			Time.timeScale = 0;
-			lastTimeFreezeTime = Time.fixedTime;
-			isFrozen = true;
+		if (Input.GetKeyDown (Constants.timeFreezeKey)) {
+			if (!isFrozen && Time.fixedTime - lastTimeFreezeTime > 0.2) {
+				Debug.Log (1);
+				Time.timeScale = 0;
+				lastTimeFreezeTime = Time.fixedTime;
+				isFrozen = true;
+			}
+			else if (isFrozen) {
+				Debug.Log (1);
+				Time.timeScale = 1;
+				isFrozen = false;
+			}
 		}
 
 		// Changes the element of the projectiles the player will be shooting
