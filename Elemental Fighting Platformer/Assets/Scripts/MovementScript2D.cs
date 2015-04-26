@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 
 public class MovementScript2D : MonoBehaviour {
+	public enum animStates { IDLE, WALK, THROW };
+
 	public float SLOW_TIME_SCALE = 0.05f;
 	public int MAX_HP = 100;
 	public float WALK_FORCE = 100.0f;
@@ -59,6 +61,7 @@ public class MovementScript2D : MonoBehaviour {
 	private float hDown, vDown;
 	private float hLastTime, vLastTime;
 	private float lastFiredTime;
+	private float animState;
 
 	private GameObject playerSprite;
 	private GameObject groundCheck;
@@ -200,9 +203,9 @@ public class MovementScript2D : MonoBehaviour {
 		}
 
 		// Makes player shoot projectile
-		if ((Mathf.Abs(hDown) > 0 || Mathf.Abs(vDown) > 0) && (Time.fixedTime - lastFiredTime > 0.2) && !isFrozen) {
+		if ((Mathf.Abs(hDown) > 0 || Mathf.Abs(vDown) > 0) && (Time.fixedTime - lastFiredTime > 0.25) && !isFrozen) {
 			isShooting = true;
-			//anim.SetTrigger ("Throw");
+			anim.SetTrigger("Throw");
 
 			GameObject projectile = projectiles[Constants.getElementIndex(element) % 3];
 			GameObject projectileClone = (GameObject) GameObject.Instantiate (projectile);
@@ -224,6 +227,10 @@ public class MovementScript2D : MonoBehaviour {
 		else {
 			anim.SetInteger("Move", 0);
 		}
+
+		/*switch (animState) {
+			case animStates.
+		}*/
 	}
 	
 	void FixedUpdate() {
