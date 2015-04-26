@@ -20,7 +20,6 @@ public class MoveToLocation : MonoBehaviour
         this.startMoveTime = Time.time + this.startMoveDelay;
         this.endMoveTime = this.startMoveTime + duration;
 		this.startLocation = gameObject.transform.position;
-		Debug.Log (startLocation);
         this.finished = false;
     }
 

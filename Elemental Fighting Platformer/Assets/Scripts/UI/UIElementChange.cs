@@ -3,7 +3,7 @@ using System.Collections;
 
 public class UIElementChange : MonoBehaviour {
 	
-	private static readonly int elementCount = 5;
+	private static readonly int elementCount = 6;
 	public Sprite[] elementSprites = new Sprite[elementCount];
 
 	public void Start() {
@@ -29,6 +29,9 @@ public class UIElementChange : MonoBehaviour {
 				break;
 			case Constants.Elements.E5:
 				spriteIndex = 4;
+				break;
+			case Constants.Elements.E6:
+				spriteIndex = 5;
 				break;
 			default:
 				spriteIndex = -1;

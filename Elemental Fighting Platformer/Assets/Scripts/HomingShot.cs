@@ -60,7 +60,7 @@ public class HomingShot : MonoBehaviour {
 			}
 		} else if (Time.fixedTime - lastSlowDownTime > slowDownTimer) {
 			//slows the bullet down prior to locking on
-			gameObject.rigidbody2D.velocity *= 0.95f;
+			gameObject.rigidbody2D.velocity *= 0.9f;
 			lastSlowDownTime = Time.fixedTime;
 		}
 	}

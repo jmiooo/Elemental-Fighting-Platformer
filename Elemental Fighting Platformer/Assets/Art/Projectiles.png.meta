@@ -1,7 +1,19 @@
 fileFormatVersion: 2
-guid: deaa0066b7cc36e44acbc1ec64e97fcb
+guid: 44c86a70e56954949b89ad4549ffbb1f
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Projectiles_0
+    21300002: Projectiles_1
+    21300004: Projectiles_2
+    21300006: Projectiles_3
+    21300008: Projectiles_4
+    21300010: Projectiles_5
+    21300012: Projectiles_6
+    21300014: Projectiles_7
+    21300016: Projectiles_8
+    21300018: Projectiles_9
+    21300020: Projectiles_10
+    21300022: Projectiles_11
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -24,10 +36,10 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
-    filterMode: 0
+    filterMode: -1
     aniso: 16
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -42,6 +54,126 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Projectiles_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 16
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Projectiles_1
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 15
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Projectiles_2
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 15
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Projectiles_3
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 16
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Projectiles_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 8
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Projectiles_5
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 8
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Projectiles_6
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 8
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Projectiles_7
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Projectiles_8
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Projectiles_9
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Projectiles_10
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 1
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Projectiles_11
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 8
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
