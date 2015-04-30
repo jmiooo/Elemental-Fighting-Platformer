@@ -10,8 +10,8 @@ public class MovementScript2D : MonoBehaviour {
 	public float JUMP_FORCE = 500.0f;
 	public float MAX_SPEED = 5.0f;
 	public float TRANSITION_TIME = 0.02f;
-	public float INVINCIBILITY_TIMER = 3f;
-	public float FLICKER_TIME = 0.01f;
+	public float INVINCIBILITY_TIMER = 2f;
+	public float FLICKER_TIMER = 0.05f;
 
 	public int hp;
 	private float originalMass;
@@ -58,6 +58,8 @@ public class MovementScript2D : MonoBehaviour {
 	public GameObject[] projectiles;
 	public bool isInvincible;
 
+	private int defaultLayer;
+	private int invincibilityLayer;
 	private float lastTimeFreezeTime;
 	private float[] esDown;
 	private float[] esLastTime;
@@ -67,7 +69,9 @@ public class MovementScript2D : MonoBehaviour {
 	private float animState;
 	private float lastHitTimer;
 	private float lastHitCalcTime;
-	
+	private float lastFlickerTimer;
+	private float lastFlickerCalcTime;
+
 	private GameObject playerSprite;
 	private GameObject groundCheck;
 	private Animator anim;
@@ -94,7 +98,7 @@ public class MovementScript2D : MonoBehaviour {
 	}
 
 	IEnumerator flicker() {
-		yield return new WaitForSeconds (FLICKER_TIME);
+		yield return new WaitForSeconds (FLICKER_TIMER);
 
 		if (!isInvincible) spriteRenderer.enabled = true;
 		else {
@@ -124,6 +128,9 @@ public class MovementScript2D : MonoBehaviour {
 		originalMass = rigidbody2D.mass;
 		originalAnimatorSpeed = anim.speed;
 		currentMaxSpeed = MAX_SPEED;
+
+		defaultLayer = LayerMask.NameToLayer ("Default");
+		invincibilityLayer = LayerMask.NameToLayer ("Invincibility");
 	}
 
 	void OnLevelWasLoaded(int level) {
@@ -140,7 +147,16 @@ public class MovementScript2D : MonoBehaviour {
 			lastHitCalcTime = Time.fixedTime;
 			if (lastHitTimer <= 0) {
 				isInvincible = false;
-				boxCollider2D.isTrigger = false;
+				enableCollisions();
+				spriteRenderer.enabled = true;
+			}
+			else {
+				lastFlickerTimer -= (Time.fixedTime - lastFlickerCalcTime) / Time.timeScale;
+				lastFlickerCalcTime = Time.fixedTime;
+				if (lastFlickerTimer <= 0) {
+					toggleSpriteVisibility();
+					lastFlickerTimer += FLICKER_TIMER;
+				}
 			}
 		}
 
@@ -309,6 +325,20 @@ public class MovementScript2D : MonoBehaviour {
 		Debug.Log ();
 	}*/
 
+	public void toggleSpriteVisibility() {
+		if (spriteRenderer.enabled) spriteRenderer.enabled = false;
+		else spriteRenderer.enabled = true;
+	}
+
+	public void enableCollisions() {
+		gameObject.layer = defaultLayer;
+	}
+
+	public void disableCollisions() {
+		Physics2D.IgnoreLayerCollision (invincibilityLayer, defaultLayer);
+		gameObject.layer = invincibilityLayer;
+	}
+
 	public void takeDamage(int damage) {
 		if (!isInvincible) {
 			hp = (hp > damage) ? (hp - damage) : 0;
@@ -319,11 +349,14 @@ public class MovementScript2D : MonoBehaviour {
 			}
 			else {
 				isInvincible = true;
-				boxCollider2D.isTrigger = true;
+				disableCollisions();
 
 				lastHitTimer = INVINCIBILITY_TIMER;
 				lastHitCalcTime = Time.fixedTime;
-				StartCoroutine (flicker());
+				lastFlickerTimer = FLICKER_TIMER;
+				lastFlickerCalcTime = Time.fixedTime;
+
+				toggleSpriteVisibility ();
 			}
 		}
 	}
