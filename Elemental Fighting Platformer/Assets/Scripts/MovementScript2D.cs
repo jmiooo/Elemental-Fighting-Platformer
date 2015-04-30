@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MovementScript2D : MonoBehaviour {
 	public enum animStates { IDLE, WALK, THROW };
@@ -71,6 +72,8 @@ public class MovementScript2D : MonoBehaviour {
 	private float lastHitCalcTime;
 	private float lastFlickerTimer;
 	private float lastFlickerCalcTime;
+	private GameObject[] combosToShoot;
+	private int comboIndex;
 
 	private GameObject playerSprite;
 	private GameObject groundCheck;
@@ -118,6 +121,9 @@ public class MovementScript2D : MonoBehaviour {
 
 		esDown = new float[6];
 		esLastTime = new float[6];
+
+		combosToShoot = new GameObject[] {};
+		comboIndex = 0;
 
 		anim = GetComponent<Animator>();
 		projectile = (GameObject) Resources.Load ("Prefabs/ProjectileE1");
@@ -167,15 +173,16 @@ public class MovementScript2D : MonoBehaviour {
 				isFrozen = true;
 				lastTimeFreezeTime = Time.fixedTime;
 
-				combo.ClearCombo();
+				combo.clearCombo();
+				combo.clearHistory();
 			}
 			else if (isFrozen && Time.fixedTime - lastTimeFreezeTime > TRANSITION_TIME * SLOW_TIME_SCALE) {
+				combosToShoot = combo.getComboProjectileHistory();
+				comboIndex = 0;
+				Debug.Log (combosToShoot.Length);
+
 				isFrozen = false;
 				lastTimeFreezeTime = Time.fixedTime;
-
-				string combo_current;
-				if ((combo_current = combo.GetCombo()) != "")
-					Debug.Log ("found combo");
 			}
 		}
 
@@ -217,6 +224,7 @@ public class MovementScript2D : MonoBehaviour {
 				default: break;
 			}
 		}
+
 
 		// Makes player sprite face the direction he will be shooting
 		float h = 0;
@@ -264,7 +272,14 @@ public class MovementScript2D : MonoBehaviour {
 			isShooting = true;
 			anim.SetTrigger("Throw");
 
-			GameObject projectile = projectiles[Constants.getElementIndex(element)];
+			GameObject projectile;
+			if (comboIndex < combosToShoot.Length) {
+				projectile = combosToShoot[comboIndex];
+				comboIndex += 1;
+			}
+			else
+				projectile = projectiles[Constants.getElementIndex(element)];
+
 			GameObject projectileClone = (GameObject) GameObject.Instantiate (projectile);
 			projectileClone.transform.position = transform.position + (Vector3) Constants.getVectorFromDirection(direction);
 			projectileClone.rigidbody2D.velocity = 10 * Constants.getVectorFromDirection(direction);
@@ -345,6 +360,7 @@ public class MovementScript2D : MonoBehaviour {
 			if (hp == 0) {
 				Destroy(gameObject);
 				Destroy(gameManagerScript.gameObject);
+				Time.timeScale = 1;
 				Constants.gotoScene("Room_1");
 			}
 			else {

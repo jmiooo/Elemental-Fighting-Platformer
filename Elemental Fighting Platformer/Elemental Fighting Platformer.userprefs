@@ -1,12 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MovementScript2D.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SpiralingShot.cs">
     <Files>
-      <File FileName="Assets\Scripts\MovementScript2D.cs" Line="114" Column="20" />
+      <File FileName="Assets\Scripts\MovementScript2D.cs" Line="338" Column="12" />
       <File FileName="Assets\Scripts\Combo.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\ExplodingShot.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\HomingShot.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyAttack3.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Constants.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\EnemyScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\UI\FloatInCircle.cs" Line="1" Column="1" />
@@ -15,22 +14,25 @@
       <File FileName="Assets\Scripts\UI\MoveToLocation.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\TimeFreezeScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\SplitShot.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyAttack2.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\ProjectileScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enemy\EnemyMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Enemy\EnemyMovement.cs" Line="35" Column="36" />
       <File FileName="Assets\Scripts\ProjectileEffectsScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\DontDestroyScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GameManagerScript.cs" Line="16" Column="4" />
-      <File FileName="Assets\Scripts\Enemy.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameManagerScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\UI\TimeFreezeMaskRotate.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\ExitGame.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyAim.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Enemy\EnemyFollow.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enemy\EnemyRandom.cs" Line="18" Column="11" />
+      <File FileName="Assets\Scripts\Enemy\EnemyRandom.cs" Line="1" Column="1" />
       <File FileName="Assets\dont.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyHover.cs" Line="19" Column="46" />
-      <File FileName="Assets\Scripts\MoveCircular.cs" Line="18" Column="3" />
-      <File FileName="Assets\Scripts\LoadLevel.cs" Line="12" Column="16" />
+      <File FileName="Assets\Scripts\EnemyHover.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MoveCircular.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\LoadLevel.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BulletScripts\SpiralShot.cs" Line="20" Column="6" />
+      <File FileName="Assets\Scripts\Enemy\EnemyAttack3.cs" Line="18" Column="3" />
+      <File FileName="Assets\Scripts\CircleShot.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CameraTopDownScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SpiralingShot.cs" Line="13" Column="14" />
+      <File FileName="Assets\Scripts\Enemy\Enemy.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
