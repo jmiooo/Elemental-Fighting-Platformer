@@ -62,12 +62,14 @@ public class MovementScript2D : MonoBehaviour {
 	private float hLastTime, vLastTime;
 	private float lastFiredTime;
 	private float animState;
-
+	
 	private GameObject playerSprite;
 	private GameObject groundCheck;
 	private Animator anim;
 	private GameObject projectile;
 	private Combo combo;
+	private GameManagerScript gameManagerScript;
+	private GameManagerScript.RoomInfo roomInfo;
 
 	IEnumerator changeFreezeParameters() {
 		yield return new WaitForSeconds(TRANSITION_TIME * SLOW_TIME_SCALE);
@@ -100,6 +102,14 @@ public class MovementScript2D : MonoBehaviour {
 		originalMass = rigidbody2D.mass;
 		originalAnimatorSpeed = anim.speed;
 		currentMaxSpeed = MAX_SPEED;
+	}
+
+	void OnLevelWasLoaded(int level) {
+		GameObject gameManager = GameObject.Find ("GameManager");
+		gameManagerScript = gameManager.GetComponent<GameManagerScript> ();
+		roomInfo = gameManagerScript.roomInfos [level];
+
+		transform.position = roomInfo.initPosition;
 	}
 
 	void Update () {
@@ -207,7 +217,7 @@ public class MovementScript2D : MonoBehaviour {
 			isShooting = true;
 			anim.SetTrigger("Throw");
 
-			GameObject projectile = projectiles[Constants.getElementIndex(element) % 3];
+			GameObject projectile = projectiles[Constants.getElementIndex(element)];
 			GameObject projectileClone = (GameObject) GameObject.Instantiate (projectile);
 			projectileClone.transform.position = transform.position + (Vector3) Constants.getVectorFromDirection(direction);
 			projectileClone.rigidbody2D.velocity = 10 * Constants.getVectorFromDirection(direction);

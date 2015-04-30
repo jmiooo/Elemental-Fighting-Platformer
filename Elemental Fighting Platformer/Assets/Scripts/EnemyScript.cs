@@ -8,12 +8,14 @@ public class EnemyScript : Enemy {
 	{
 		/* associate the enemy with the player */
 		player = GameObject.Find("Player");
+		/*
 		speed = 0.5f;
-		hp = 100;
 
 		direction = -1;
 		lastChange = Time.fixedTime;
+
 		rigidbody2D.velocity = new Vector2(0, direction * speed);
+		*/
 
 		hitHistory = new int[] { 0, 0, 0, 0, 0, 0 };
 
@@ -28,8 +30,7 @@ public class EnemyScript : Enemy {
 			yield return new WaitForSeconds(1);
 		}
 	}
-	
-	/* updater is called once per frame */
+	/*
 	void Update ()
 	{
 		if (Time.fixedTime - lastChange > 5) {
@@ -41,6 +42,7 @@ public class EnemyScript : Enemy {
 	void FixedUpdate() {
 		rigidbody2D.velocity = new Vector2(0, direction * speed);
 	}
+	*/
 	
 	public override void takeDamage(int damage)
 	{

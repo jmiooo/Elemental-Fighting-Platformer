@@ -6,7 +6,7 @@ public class LoadLevel : MonoBehaviour {
 	public string destination;
 
 	void OnTriggerEnter2D (Collider2D col) {
-		if (col.tag == "Player") Application.LoadLevel (destination);
+		if (col.tag == "Player") gotoScene (destination);
 	}
 
 	public void gotoScene(string name) {

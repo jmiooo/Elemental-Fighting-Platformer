@@ -46,7 +46,6 @@ public class MoveToLocation : MonoBehaviour
                 this.finished = true;
             }
         } else if (!(this.finished) && (Time.time >= this.startMoveTime)) {
-			Debug.Log(gameObject.transform.position);
             this.moving = true;
         }
     }
