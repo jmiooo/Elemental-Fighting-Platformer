@@ -60,6 +60,7 @@ public class MovementScript2D : MonoBehaviour {
 	public bool isInvincible;
 
 	private int defaultLayer;
+	private int enemiesLayer;
 	private int invincibilityLayer;
 	private float lastTimeFreezeTime;
 	private float[] esDown;
@@ -136,7 +137,10 @@ public class MovementScript2D : MonoBehaviour {
 		currentMaxSpeed = MAX_SPEED;
 
 		defaultLayer = LayerMask.NameToLayer ("Default");
+		enemiesLayer = LayerMask.NameToLayer ("Enemies");
 		invincibilityLayer = LayerMask.NameToLayer ("Invincibility");
+
+		Physics2D.IgnoreLayerCollision (enemiesLayer, enemiesLayer);
 	}
 
 	void OnLevelWasLoaded(int level) {
@@ -351,6 +355,7 @@ public class MovementScript2D : MonoBehaviour {
 
 	public void disableCollisions() {
 		Physics2D.IgnoreLayerCollision (invincibilityLayer, defaultLayer);
+		Physics2D.IgnoreLayerCollision (invincibilityLayer, enemiesLayer);
 		gameObject.layer = invincibilityLayer;
 	}
 

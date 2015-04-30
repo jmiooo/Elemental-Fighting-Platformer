@@ -1,38 +1,25 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SpiralingShot.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\RotationScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\MovementScript2D.cs" Line="338" Column="12" />
-      <File FileName="Assets\Scripts\Combo.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ExplodingShot.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\HomingShot.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Constants.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\FloatInCircle.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\HealthMaskMove.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\UI\UIElementChange.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\MoveToLocation.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\TimeFreezeScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SplitShot.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ProjectileScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enemy\EnemyMovement.cs" Line="35" Column="36" />
-      <File FileName="Assets\Scripts\ProjectileEffectsScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\DontDestroyScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GameManagerScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\TimeFreezeMaskRotate.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ExitGame.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enemy\EnemyFollow.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enemy\EnemyRandom.cs" Line="1" Column="1" />
-      <File FileName="Assets\dont.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyHover.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MoveCircular.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\LoadLevel.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\BulletScripts\SpiralShot.cs" Line="20" Column="6" />
-      <File FileName="Assets\Scripts\Enemy\EnemyAttack3.cs" Line="18" Column="3" />
+      <File FileName="Assets\Scripts\MovementScript2D.cs" Line="178" Column="15" />
+      <File FileName="Assets\Scripts\Combo.cs" Line="44" Column="4" />
+      <File FileName="Assets\Scripts\Constants.cs" Line="34" Column="52" />
       <File FileName="Assets\Scripts\CircleShot.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CameraTopDownScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SpiralingShot.cs" Line="13" Column="14" />
-      <File FileName="Assets\Scripts\Enemy\Enemy.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\HealthMaskMove.cs" Line="37" Column="3" />
+      <File FileName="Assets\Scripts\UI\UIElementCombo.cs" Line="14" Column="30" />
+      <File FileName="Assets\Scripts\UI\TimeFreezeMaskRotate.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\DontDestroyScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Enemy\EnemyCollision.cs" Line="33" Column="3" />
+      <File FileName="Assets\Scripts\EnemyScript.cs" Line="57" Column="3" />
+      <File FileName="Assets\Scripts\Enemy\EnemyCharge.cs" Line="102" Column="96" />
+      <File FileName="Assets\Scripts\Enemy\EnemyBoomerang.cs" Line="34" Column="17" />
+      <File FileName="Assets\Scripts\EnemySpin.cs" Line="14" Column="83" />
+      <File FileName="Assets\Scripts\EnemyHover.cs" Line="30" Column="7" />
+      <File FileName="Assets\Scripts\HomingShot.cs" Line="51" Column="19" />
+      <File FileName="Assets\Scripts\LoadLevel.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\RotationScript.cs" Line="8" Column="109" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -6,10 +6,16 @@ public class UIElementChange : MonoBehaviour {
 	private static readonly int elementCount = 6;
 	public Sprite[] elementSprites = new Sprite[elementCount];
 
+	private GameObject player;
+	private MovementScript2D movementScript2D;
+
 	public void Start() {
 		if (this.elementSprites.Length != UIElementChange.elementCount) {
 			throw new MissingComponentException("Invalid number of element sprites - should be " + UIElementChange.elementCount + "; found " + this.elementSprites.Length);
 		}
+
+		player = GameObject.Find("Player");
+		movementScript2D = player.GetComponent<MovementScript2D>();
 	}
 
 	public void ChangeToElement(Constants.Elements element) {
@@ -42,5 +48,9 @@ public class UIElementChange : MonoBehaviour {
 		} else {
 			gameObject.GetComponent<UnityEngine.UI.Image>().sprite = this.elementSprites[spriteIndex];
 		}
+	}
+
+	public void Update() {
+		ChangeToElement (movementScript2D.element);
 	}
 }

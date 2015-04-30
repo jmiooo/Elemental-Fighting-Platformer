@@ -31,6 +31,18 @@ public static class Constants{
 		}
 	}
 
+	public static Constants.Elements getElementByIndex(int index) {
+		switch (index) {
+			case 0: return Constants.Elements.E1;
+			case 1: return Constants.Elements.E2;
+			case 2: return Constants.Elements.E3;
+			case 3: return Constants.Elements.E4;
+			case 4: return Constants.Elements.E5;
+			case 5: return Constants.Elements.E6;
+			default: return Constants.Elements.E1;
+		}
+	}
+	
 	public static KeyCode timeFreezeKey = KeyCode.Space;
 
 	public static KeyCode element1Key = KeyCode.Alpha1;

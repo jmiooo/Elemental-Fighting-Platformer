@@ -8,6 +8,10 @@ public class EnemyCharge : MonoBehaviour {
 	public float timer;
 	public float chargespeed;
 	public float chargeTime;
+
+	public bool willRotate;
+	public float originalAngle;
+	public float angularVelocity;
 	
 	private Vector2 direction;
 	private Vector2 startpos;
@@ -15,6 +19,7 @@ public class EnemyCharge : MonoBehaviour {
 	private Vector2 accel;
 	private float lastTime;
 	private bool charge;
+	private bool reached;
 	
 	// Use this for initialization
 	void Start () {
@@ -45,6 +50,7 @@ public class EnemyCharge : MonoBehaviour {
 						charge = true;
 						direction = -Vector2.up;
 						lastTime = Time.fixedTime;
+						reached = false;
 					}
 				}
 			}
@@ -56,6 +62,7 @@ public class EnemyCharge : MonoBehaviour {
 						charge = true;
 						direction = Vector2.up;
 						lastTime = Time.fixedTime;
+						reached = false;
 					}
 				}
 			}
@@ -67,6 +74,7 @@ public class EnemyCharge : MonoBehaviour {
 						charge = true;
 						direction = Vector2.right;
 						lastTime = Time.fixedTime;
+						reached = false;
 					}
 				}
 			}
@@ -78,6 +86,7 @@ public class EnemyCharge : MonoBehaviour {
 						charge = true;
 						direction = -Vector2.right;
 						lastTime = Time.fixedTime;
+						reached = false;
 					}
 				}
 			}
@@ -85,6 +94,23 @@ public class EnemyCharge : MonoBehaviour {
 			gameObject.rigidbody2D.velocity = direction * chargespeed;
 			if (Time.fixedTime - lastTime > chargeTime) {
 				charge = false;
+			}
+		}
+
+		if (willRotate) {
+			if (charge && !reached) {
+				float desiredAngle = Mathf.Atan2(direction.y, direction.x) * 180 / Mathf.PI + originalAngle;
+				float currentAngle = transform.eulerAngles.z;
+
+				if (Mathf.Abs (desiredAngle - currentAngle) <= 180)
+					transform.localEulerAngles = new Vector3(0, 0, currentAngle + (desiredAngle - currentAngle >= 0 ? 1 : -1) * angularVelocity);
+				else
+					transform.localEulerAngles = new Vector3(0, 0, currentAngle + (desiredAngle + 360 * (currentAngle >= desiredAngle ? 1 : -1) - currentAngle >= 0 ? 1 : -1) * angularVelocity);
+
+				if (Mathf.Abs (desiredAngle - transform.eulerAngles.z) <= 10) {
+					transform.localEulerAngles = new Vector3(0, 0, desiredAngle);
+					reached = true;
+				}
 			}
 		}
 

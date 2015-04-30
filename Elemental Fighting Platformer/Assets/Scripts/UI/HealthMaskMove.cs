@@ -37,6 +37,7 @@ public class HealthMaskMove : MonoBehaviour
 	}
 
 	public void Update() {
+		//Debug.Log (movementScript2D.hp);
 		float healthPercent = (float)movementScript2D.hp / (float)movementScript2D.MAX_HP;
 		//if (healthPercent != previousHealthPercent) {
 			MatchMaskToPercentage(healthPercent);

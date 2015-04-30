@@ -1,9 +1,10 @@
 fileFormatVersion: 2
-guid: 3cdecee82d1cf4a4587f5403692f5af5
+guid: d5d16edbac8808c459b7782f63268c42
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Jello_0
-    21300002: Jello_1
+    21300000: fatWalk_0
+    21300002: fatWalk_1
+    21300004: fatWalk_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -45,23 +46,33 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Jello_0
+    - name: fatWalk_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 26
-        height: 21
+        x: 34
+        y: 30
+        width: 27
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Jello_1
+    - name: fatWalk_1
       rect:
         serializedVersion: 2
-        x: 28
-        y: 1
-        width: 28
-        height: 19
+        x: 130
+        y: 31
+        width: 27
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: fatWalk_2
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 30
+        width: 27
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
