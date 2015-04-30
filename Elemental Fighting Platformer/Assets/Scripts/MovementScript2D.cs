@@ -10,7 +10,9 @@ public class MovementScript2D : MonoBehaviour {
 	public float JUMP_FORCE = 500.0f;
 	public float MAX_SPEED = 5.0f;
 	public float TRANSITION_TIME = 0.02f;
-	
+	public float INVINCIBILITY_TIMER = 3f;
+	public float FLICKER_TIME = 0.01f;
+
 	public int hp;
 	private float originalMass;
 	private float originalAnimatorSpeed;
@@ -54,6 +56,7 @@ public class MovementScript2D : MonoBehaviour {
 	public Constants.Dir direction;
 	public bool isShooting;
 	public GameObject[] projectiles;
+	public bool isInvincible;
 
 	private float lastTimeFreezeTime;
 	private float[] esDown;
@@ -62,12 +65,17 @@ public class MovementScript2D : MonoBehaviour {
 	private float hLastTime, vLastTime;
 	private float lastFiredTime;
 	private float animState;
+	private float lastHitTimer;
+	private float lastHitCalcTime;
 	
 	private GameObject playerSprite;
 	private GameObject groundCheck;
 	private Animator anim;
 	private GameObject projectile;
 	private Combo combo;
+	private BoxCollider2D boxCollider2D;
+	private SpriteRenderer spriteRenderer;
+
 	private GameManagerScript gameManagerScript;
 	private GameManagerScript.RoomInfo roomInfo;
 
@@ -75,13 +83,25 @@ public class MovementScript2D : MonoBehaviour {
 		yield return new WaitForSeconds(TRANSITION_TIME * SLOW_TIME_SCALE);
 		if (_isFrozen) {
 			currentMaxSpeed /= SLOW_TIME_SCALE;
-			
+
 			rigidbody2D.mass *= SLOW_TIME_SCALE;
 			rigidbody2D.drag /= SLOW_TIME_SCALE;
 			rigidbody2D.velocity /= SLOW_TIME_SCALE;
 			rigidbody2D.angularVelocity /= SLOW_TIME_SCALE;
 			
 			anim.speed /= SLOW_TIME_SCALE;
+		}
+	}
+
+	IEnumerator flicker() {
+		yield return new WaitForSeconds (FLICKER_TIME);
+
+		if (!isInvincible) spriteRenderer.enabled = true;
+		else {
+			if (spriteRenderer.enabled) spriteRenderer.enabled = false;
+			else spriteRenderer.enabled = true;
+
+			flicker ();
 		}
 	}
 
@@ -98,6 +118,8 @@ public class MovementScript2D : MonoBehaviour {
 		anim = GetComponent<Animator>();
 		projectile = (GameObject) Resources.Load ("Prefabs/ProjectileE1");
 		combo = GetComponent<Combo> ();
+		boxCollider2D = GetComponent<BoxCollider2D> ();
+		spriteRenderer = GetComponentInChildren<SpriteRenderer> ();
 
 		originalMass = rigidbody2D.mass;
 		originalAnimatorSpeed = anim.speed;
@@ -113,6 +135,15 @@ public class MovementScript2D : MonoBehaviour {
 	}
 
 	void Update () {
+		if (isInvincible) {
+			lastHitTimer -= (Time.fixedTime - lastHitCalcTime) / Time.timeScale;
+			lastHitCalcTime = Time.fixedTime;
+			if (lastHitTimer <= 0) {
+				isInvincible = false;
+				boxCollider2D.isTrigger = false;
+			}
+		}
+
 		//rigidbody2D.velocity = new Vector3 (0, 0, 0);
 		// Activates time freeze
 		if (Input.GetKeyDown (Constants.timeFreezeKey)) {
@@ -279,7 +310,22 @@ public class MovementScript2D : MonoBehaviour {
 	}*/
 
 	public void takeDamage(int damage) {
-		hp = (hp > damage) ? (hp - damage) : 0;
+		if (!isInvincible) {
+			hp = (hp > damage) ? (hp - damage) : 0;
+			if (hp == 0) {
+				Destroy(gameObject);
+				Destroy(gameManagerScript.gameObject);
+				Constants.gotoScene("Room_1");
+			}
+			else {
+				isInvincible = true;
+				boxCollider2D.isTrigger = true;
+
+				lastHitTimer = INVINCIBILITY_TIMER;
+				lastHitCalcTime = Time.fixedTime;
+				StartCoroutine (flicker());
+			}
+		}
 	}
 
 	public void takeElementAndDamage(Constants.Elements element, int damage) {

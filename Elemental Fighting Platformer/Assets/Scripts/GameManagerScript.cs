@@ -10,4 +10,9 @@ public class GameManagerScript : MonoBehaviour {
 	}
 
 	public RoomInfo[] roomInfos;
+
+	public void reset() {
+		for (int i = 0; i < roomInfos.Length; i++)
+			roomInfos[i].isCleared = false;
+	}
 }

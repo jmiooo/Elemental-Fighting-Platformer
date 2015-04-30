@@ -39,4 +39,8 @@ public static class Constants{
 	public static KeyCode element4Key = KeyCode.Alpha4;
 	public static KeyCode element5Key = KeyCode.Alpha5;
 	public static KeyCode element6Key = KeyCode.Alpha6;
+
+	public static void gotoScene(string name) {
+		Application.LoadLevel (name);
+	}
 }
