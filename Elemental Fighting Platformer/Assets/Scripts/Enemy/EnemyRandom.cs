@@ -9,6 +9,8 @@ public class EnemyRandom : MonoBehaviour {
 
 	private Vector2 direction;
 	private Vector2 startpos;
+	private Vector2 target;
+	private Vector2 accel;
 	private float lastTime;
 
 	// Use this for initialization
@@ -16,20 +18,26 @@ public class EnemyRandom : MonoBehaviour {
 		startpos = gameObject.transform.position;
 		lastTime = Time.fixedTime;
 
-		direction = Random.insideUnitCircle.normalized;
-		gameObject.rigidbody2D.velocity = (speed * direction);
+		target = (Vector2)((Random.insideUnitCircle.normalized * radius)) + startpos;
+		direction = target - (Vector2)gameObject.transform.position;
+		accel = (direction - gameObject.rigidbody2D.velocity).normalized;
+		gameObject.rigidbody2D.velocity += (accel * speed);
 	}
 	
 	void FixedUpdate () {
 		if (Time.fixedTime - lastTime > timer) {
-			direction = Random.insideUnitCircle.normalized;
-			gameObject.rigidbody2D.velocity = (speed * direction);
+			target = (Vector2)((Random.insideUnitCircle.normalized * radius)) + startpos;
 			lastTime = Time.fixedTime;
 		}
+		/*
 		Vector2 nextStep = ((Vector2) gameObject.transform.position + gameObject.rigidbody2D.velocity);
 		if (Vector2.Distance (nextStep, startpos) > radius) {
-			direction = Random.insideUnitCircle.normalized;
-			gameObject.rigidbody2D.velocity = (speed * direction);
+			direction *= -1;
+			lastTime = Time.fixedTime;
 		}
+		*/
+		direction = target - (Vector2)gameObject.transform.position;
+		accel = (direction - gameObject.rigidbody2D.velocity).normalized;
+		gameObject.rigidbody2D.velocity += (accel * speed);
 	}
 }
