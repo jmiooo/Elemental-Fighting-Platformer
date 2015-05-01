@@ -1,0 +1,10 @@
+function sweep(dur)
+  begin with extra-end = 3,
+             total-dur = dur + extra-end,
+             amp-env = pwl(0, 1, dur, 0.3, dur + extra-end * 0.1, 0.1, dur + extra-end * 0.5, 0.03, total-dur)
+        return reson(noise(total-dur) * 0.2 * amp-env,
+                     pwl(dur / 2.0, 0.25, dur, 1, total-dur, 0.5, total-dur) * 3000,
+                     (pwl(dur / 2.0, 0.25, dur, 1, total-dur, 0.5, total-dur) * 800), 1) * 0.64
+  end
+
+play sweep(2.5)

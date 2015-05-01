@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class EnemyScript : Enemy {
+	private EnemySpawner enemySpawner = null;
+	private int enemySpawnerIndex;
 
 	/* initializer */
 	void Start ()
@@ -43,12 +45,21 @@ public class EnemyScript : Enemy {
 		rigidbody2D.velocity = new Vector2(0, direction * speed);
 	}
 	*/
+
+	public void setEnemySpawnerAndIndex(EnemySpawner enemySpawner, int enemySpawnerIndex) {
+		this.enemySpawner = enemySpawner;
+		this.enemySpawnerIndex = enemySpawnerIndex;
+	}
 	
 	public override void takeDamage(int damage)
 	{
 		hp = (hp > damage) ? hp - damage : 0;
 		if (hp == 0) {
 			Destroy(gameObject);
+
+			if (enemySpawner) {
+				enemySpawner.notifyDeath(enemySpawnerIndex);
+			}
 		}
 	}
 

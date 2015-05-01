@@ -182,7 +182,7 @@ public class MovementScript2D : MonoBehaviour {
 			}
 			else if (isFrozen && Time.fixedTime - lastTimeFreezeTime > TRANSITION_TIME * SLOW_TIME_SCALE) {
 				combosToShoot = combo.getComboProjectileHistory();
-				comboIndex = 0;
+				comboIndex = combosToShoot.Length > 5 ? combosToShoot.Length - 5 : 0;
 				Debug.Log (combosToShoot.Length);
 
 				isFrozen = false;

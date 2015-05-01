@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ProjectileScript : MonoBehaviour {
 	public Constants.Elements element;
+	public int damage;
 
 	public string parentTag;
 
@@ -18,11 +19,11 @@ public class ProjectileScript : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D col) {
 		if (parentTag == "Enemy" && col.tag == "Player") {
-			col.gameObject.GetComponent<MovementScript2D>().takeElementAndDamage(element, 2);
+			col.gameObject.GetComponent<MovementScript2D>().takeElementAndDamage(element, damage);
 			Destroy (gameObject);
 		} else if (parentTag == "Player" && col.tag == "Enemy") {
 			//col.gameObject.GetComponent<EnemyScript>().takeDamage(10);
-			col.gameObject.GetComponent<EnemyScript> ().takeElementAndDamage (element, 10);
+			col.gameObject.GetComponent<EnemyScript> ().takeElementAndDamage (element, damage);
 			Destroy (gameObject);
 		} else if (col.tag == "Prop") {
 			Destroy (gameObject);
